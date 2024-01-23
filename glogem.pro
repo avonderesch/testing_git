@@ -1,3 +1,6 @@
+
+; what if I do something stupid in the model code
+
 ; supporting procedure for plotting
 pro PSCAL, mode, xscm,yscm, xlb=xlb, xrb=xrb, ylb=ylb, yub=yub, $
            cm2n=cm2n, name=name, win=win, rsc=rsc
@@ -134,6 +137,7 @@ meltmodel='1'                   ; Select melt model to be used
                                 ; 3: Simple energy-balance model (Oerlemans,2001)
 
 find_startyear='y'     ; automatically determine first year of future modelling (based on date of inventory); 'n' ALSO to drive static output for GloGEMflow
+
 
 ; ---------------------------------------
 ; climate data
