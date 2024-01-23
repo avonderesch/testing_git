@@ -1,7 +1,11 @@
 
 ; what if I do something stupid in the model code
 
+
 ; this is second test 
+
+; now Alex is doing something stupid 
+
 
 ; supporting procedure for plotting
 pro PSCAL, mode, xscm,yscm, xlb=xlb, xrb=xrb, ylb=ylb, yub=yub, $
