@@ -1,3 +1,22 @@
+ res_mod_set
+
+; what if I do something stupid in the model code
+
+
+; this is second test
+
+; now Alex is doing something stupid
+
+
+; I am adding some code and abit more and even more
+
+for 1, 10 begin
+  print, 1
+endfor
+
+
+=======
+ main
 ; supporting procedure for plotting
 pro PSCAL, mode, xscm,yscm, xlb=xlb, xrb=xrb, ylb=ylb, yub=yub, $
            cm2n=cm2n, name=name, win=win, rsc=rsc
@@ -74,7 +93,7 @@ dir_data='/scratch_net/iceberg_second/mhuss/global_thickness/rgi60/bands_consens
 dir_data_alt='/scratch_net/iceberg_second/mhuss/global_thickness/rgi60/bands_HF2012/'    ; alternative thickness data (for cross-checks)
 dir_clim='/scratch_net/vierzack04_fourth/mhuss/klima/'     ; climate data
 
-	
+
 ; individual regions / subregions to be run (mostly working with region-loop)
 ;dir_region='Alaska' & region_n=['alaska']  ; *1
 ;dir_region='WesternCanada' & region_n=['westerncanada']    ; *2
@@ -156,8 +175,8 @@ first_GCM=0                ; First GCM to start with in batch processing; number
 rcp_batch=[4,5,4,4,5,5,4,5,4,4,4,5,4]     ; number of SSPs per GCMs
 expe_batch=[1,1,1,1,1,1,1,1,1,1,1,1,1]    ; number of experiments for GCMs
 
-GCM_model=['BCC-CSM2-MR','CAMS-CSM1-0','CESM2','CESM2-WACCM','EC-Earth3','EC-Earth3-Veg','FGOALS-f3-L','GFDL-ESM4','INM-CM4-8','INM-CM5-0','MPI-ESM1-2-HR','MRI-ESM2-0','NorESM2-MM'] 
-   
+GCM_model=['BCC-CSM2-MR','CAMS-CSM1-0','CESM2','CESM2-WACCM','EC-Earth3','EC-Earth3-Veg','FGOALS-f3-L','GFDL-ESM4','INM-CM4-8','INM-CM5-0','MPI-ESM1-2-HR','MRI-ESM2-0','NorESM2-MM']
+
 GCM_rcp=['ssp126','ssp245','ssp370','ssp585','ssp119','ssp534-over']
 
 GCM_experiment=['r1i1p1f1','r2i1p1f1','r3i1p1f1','r4i1p1f1','r5i1p1f1','r6i1p1f1','r7i1p1f1']
@@ -175,13 +194,13 @@ reanalysis='ERA5' &  rea_eval=[1980,2019]      ; time period for evaluating the 
 ; calibration
 
 ;calibrate='y'               ; run calibration routine (setting given above)
-    valiglaciers_only='n'    ; perform a calibration run for the WGMS validation glaciers only 
+    valiglaciers_only='n'    ; perform a calibration run for the WGMS validation glaciers only
 
 calibrate_individual='y'     ; parameter optimization for individual glaciers
 
 calibrate_glacierspecific='y'  ; glacier-specific calibration based mb_glspec* files
    calibrate_glacierspecific_period='2000_2020'
-   rhodv_iteration=''          ; default 
+   rhodv_iteration=''          ; default
    ;rhodv_iteration='_iteration2'     ; iterating for density of volume change (target directory, reference No -1)
 
 ; read calibration periods etc based on file "calibration.dat"
@@ -200,11 +219,11 @@ calibration_phase='1'        ; 1: calibrate c_prec ; 2: DDF_snow ; 3: adjust tem
     c1_tolerance=[.8,2.4]    ; c_prec tolerance (irrelevant, as ranges are given in file)
     c2_tolerance=[1.75,4.5]  ; DDF_snow tolerance - M1  (irrelevant, as ranges are given in file)
 
-    c2m3_tolerance=[7.,15.]     ; C1 tolerance - M3  
+    c2m3_tolerance=[7.,15.]     ; C1 tolerance - M3
     t_offset=0.              ; default temperature correction of re-analysis data
 
-repeat_calibration='y'       ; Repeat calibration iteratively for Toff_grid until all glaciers are calibrated 
-    
+repeat_calibration='y'       ; Repeat calibration iteratively for Toff_grid until all glaciers are calibrated
+
 ; ***********
 ; other options
 
@@ -266,14 +285,14 @@ debris_supraglacial='n'              ; ACTIVATE MODEL FOR SUPRAGLACIAL DEBRIS
 
    debris_expansion='y'        ; spatial expansion of debris over time
       debris_exp_gradient=2.0    ; [% a-1 frac-1] gradient of debris extension
-      debris_seed_bands=10       ; factor to scale decadal ELA-change into a number bands per year with new debris seed 
+      debris_seed_bands=10       ; factor to scale decadal ELA-change into a number bands per year with new debris seed
       debris_initialband=0.01    ; [m] thickness of debris in newly generated formed bands with no initial observations
       debris_pond_gradient=0.1     ; [% a-1 frac-1] gradient of pond/cliff extension [not used anymore - now automated??]
       debris_ponddens_max=0.1    ; [-] maximum density of ponds within band [not used anymore - now automated??]
 
    debris_thickening='y'       ; thickening of debris over time
       debris_thick_gradient=1.0  ; [cm a-1 km-1]  thickening linearly increasing from ELA towards glacier terminus
-      
+
 ; ------- refreezing / englacial temperature model
 
 refreezing_full='y'      ; ACTIVATE REFREEZING MODEL
@@ -312,7 +331,7 @@ frontal_ablation='y'     ; ACTIVATE FRONTAL ABLATION MODEL (only marine-terminat
 	regparams_readfromfile='y'    ; reading parameters from regional file or use above ones?
 
         length_corrfact=1.4     ; correction factor for length (according to Oerlemans)
-        
+
         ccorr_expon=2.5               ; bedrock profile corrected for parabola-shape
         crit_ccorrdist=3000.          ; bedrock profile corrected for parabola-shape
         bedrock_parabolacorr=0.2      ; bedrock profile corrected for parabola-shape
@@ -331,12 +350,12 @@ format_of=['f10.3','f10.4','f8.3','f8.3','f8.3','f8.3','f8.3','f8.3','i6','f7.1'
 
 write_mb_elevationbands='n'     ; write out seasonal mass balance in elevation bands for every glacier
     eval_mbelevsensitivity='n'      ; evaluating mass balance sensitivity in each band to changing surface elevation
-    count_mbelevsens_v0=5              ; number of elevations computed 
+    count_mbelevsens_v0=5              ; number of elevations computed
 
 past_out='y'                 ; if files for PAST (runs only with observed climate) should be written to external folder (not files/)
 
 write_hypsometry_files='n'   ; write out annual hypsometry for all glaciers
-        
+
 ; --------------------------------------
 ; options for region to be calculated
 
@@ -368,8 +387,8 @@ dircali=dirres
 
 mon_len=[31,28,31,30,31,30,31,31,30,31,30,31]    ; days on month
 
-min_tempbias=-8   ; default: -9999  - restrict extreme temperature biases 
-min_precbias=0.05 ; default: -9999  - restrict extreme precipitation biases 
+min_tempbias=-8   ; default: -9999  - restrict extreme temperature biases
+min_precbias=0.05 ; default: -9999  - restrict extreme precipitation biases
 
 ; nodata-valeus
 noval=-9999
@@ -408,10 +427,10 @@ if calibrate eq 'y' then begin
 endif
 
 if calibrate eq 'n' and tran(1) lt 2021 then begin   ; end year currently set by extent of available ERA5-dataset (2020)
-   reanalysis_direct='y' 
+   reanalysis_direct='y'
    short_gcmchoice=[1,1,1]   ; make sure that only one run is performed!
    glacier_retreat='n'
-   if hindcast_dynamic eq 'n' then find_startyear='n' 
+   if hindcast_dynamic eq 'n' then find_startyear='n'
 endif
 
 if calibrate eq 'n' then begin
@@ -452,10 +471,10 @@ rf_dsc=3.                      ; increase in temporal resolution (num. stability
 rf_dt=3600.*24.*30./rf_dsc     ; time step
 
 ; initialize ice temperature model
-fit_layers=[10,10,10]          ; number of layers with given thickness (max. 260m in this setting) 
+fit_layers=[10,10,10]          ; number of layers with given thickness (max. 260m in this setting)
 fit_dzstep=[1.,5.,20.]         ; layer thickness (m)
-; reference density profile, shifted depending on snow/firn situation 
-fit_dens=[250,300,360,420,480,550,580,610,640,670,700,730,760,790,820,850,880,900]          
+; reference density profile, shifted depending on snow/firn situation
+fit_dens=[250,300,360,420,480,550,580,610,640,670,700,730,760,790,820,850,880,900]
 fact_permeability=[0.001,0.005]   ; scaling parameters for estimating glacier ice permeability (slope, thickness) (TO BE VALIDATED!)
 
 cice=1890000.    ; heat capacity of ice [J m-3]
@@ -516,7 +535,7 @@ if firnice_temperature eq 'y' then begin
    cellsize=double(strmid(header(4),9,40))
    a=cellsize/2d & fit_xx=lindgen(ncols)*cellsize+xllcorner+a & fit_yy=lindgen(nrows)*cellsize+yllcorner+a
    firnice_geotherm_flux=rotate(da,7)/1000.
-   
+
 if firnice_batch eq 'y' then begin
    fn=dir+'icetemperature_batch.dat' & nffbl=file_lines(fn)-1 & s=strarr(nffbl) & tt=strarr(1)
    openr,1,fn & readf,1,tt & readf,1,s & close,1
@@ -525,7 +544,7 @@ if firnice_batch eq 'y' then begin
       a=strsplit(s(i),',',/extract) & firnice_batch_data2(0,i)=strcompress(strmid(a(4),10,5)) & firnice_batch_data2(1,i)=strcompress(a(1),/remove_all)
       firnice_batch_data1(0,i)=double(a(2)) & firnice_batch_data1(1,i)=double(strmid(a(4),7,2)) & firnice_batch_data1(2,i)=double(a(10))
    endfor
-endif   
+endif
 
 endif
 
@@ -585,7 +604,7 @@ for ffbl=0,firnice_batch_loop-1 do begin
 if firnice_batch eq 'y' then begin
 ; make sure that other settings are fine
    ; DEACTIVE write_file='n' in potential FULL runs
-   write_file='n' & calibrate='n'  
+   write_file='n' & calibrate='n'
    single_glacier=firnice_batch_data2(0,ffbl) ; define indivudal glacier to be run
    firnice_profile_ID=firnice_batch_data2(1,ffbl)   ; define temperature profile ID
    ii=where(firnice_batch_data1(1,ffbl) eq region_loop_data(1,*),ci)         ; RGI region
@@ -593,7 +612,7 @@ if firnice_batch eq 'y' then begin
    firnice_profile=[firnice_batch_data1(0,ffbl)]                                             ; define elevation
    firnice_maxdepth=[firnice_batch_data1(2,ffbl)]
 endif
-   
+
 ; ********************************************************
 ; LOOP OVER ALL REGIONS
 
@@ -616,7 +635,7 @@ endif else begin
    region=region_loop_data(4,re+region_id_loop(0)-1)
    dir_region=region_loop_data(2,re+region_id_loop(0)-1)
    clim_subregion=region_loop_data(3,re+region_id_loop(0)-1)
-   if clim_subregion eq 'xxx' then clim_subregion='' 
+   if clim_subregion eq 'xxx' then clim_subregion=''
    if clim_subregion ne '' then sub_region=clim_subregion else sub_region=''
    if sub_region eq '' then sub_region=region
 endelse
@@ -654,7 +673,7 @@ if reanalysis_direct ne 'y' then begin
       openr,1,fn & readf,1,tt & readf,1,ntime & readf,1,nlons & readf,1,nlats  & readf,1,nvar
       ntime=ntime(0) & nlats=nlats(0) & nlons=nlons(0) & nvar=nvar(0)
       gcmtime=dblarr(ntime) & gcm_lat=dblarr(nlats) & gcm_lon=dblarr(nlons)
-      readf,1,gcmtime & readf,1,gcm_lon & readf,1,gcm_lat 
+      readf,1,gcmtime & readf,1,gcm_lon & readf,1,gcm_lat
       gcm_elev=dblarr(nlons,nlats) & gcm_temp=dblarr(ntime,nlons,nlats) & gcm_prec=gcm_temp
       for h=0,nlons(0)-1 do begin
          a=dblarr(nlats) & readf,1,a & gcm_elev(h,*)=a
@@ -671,7 +690,7 @@ if reanalysis_direct ne 'y' then begin
          endfor
       endfor
       close,1
-      
+
       gcm_year=fix(gcmtime) & gcm_mon=round((gcmtime-gcm_year)*12+0.5)
       ii=where(gcm_lon ge 180,ci) & if ci gt 0 then gcm_lon(ii)=gcm_lon(ii)-360
 
@@ -681,7 +700,7 @@ if reanalysis_direct ne 'y' then begin
          '/'+GCM_model(gcms)+'_'+GCM_rcp(rcps)+'_'+GCM_experiment(experis)+'_'+dir_region+ccl+'.mdi'
       tt=strarr(1) & nyrs=dblarr(1) & nmonths=nyrs & nlons=nyrs & nlats=nyrs & nvar=nyrs
       openr,1,fn & readf,1,tt & readf,1,nyrs & readf,1,nmonths & readf,1,nlats & readf,1,nlons & readf,1,nvar
-      nyrs=nyrs(0) & nmonths=nmonths(0) & nlats=nlats(0) & nlons=nlons(0) 
+      nyrs=nyrs(0) & nmonths=nmonths(0) & nlats=nlats(0) & nlons=nlons(0)
       gcm_year=dblarr(nyrs) & gcm_mon=dblarr(nmonths) & gcm_lat=dblarr(nlats) & gcm_lon=dblarr(nlons)
       readf,1,gcm_year & readf,1,gcm_mon & readf,1,gcm_lat & readf,1,gcm_lon
       gcm_temp=dblarr(nyrs,nmonths,nlats,nlons) & gcm_prec=gcm_temp
@@ -775,7 +794,7 @@ endfor
 close,1
 
 ; turn longitude arrays
-if clim_subregion eq 'East' then begin 
+if clim_subregion eq 'East' then begin
    ii=where(rlon gt 180,ci) & if ci gt 0 then rlon(ii)=rlon(ii)-360
    ii=where(rvlon gt 180,ci) & if ci gt 0 then rvlon(ii)=rvlon(ii)-360
 endif else begin
@@ -821,7 +840,7 @@ endif
 if calibrate eq 'y' then begin
 
 if calibrate_glacierspecific eq 'n' then begin
-   
+
 fn=dir+'calibration.dat' & anz=file_lines(fn)-1   & s=strarr(1) & tt=strarr(anz)
 openr,1,fn & readf,1,s & readf,1,tt & close,1
 calimb_regname=strarr(anz) & calimb_sregname=strarr(anz) & calimb_outline=strarr(anz)
@@ -842,15 +861,15 @@ a=strsplit(calibrate_glacierspecific_period,'_',/extract)
 calimb_p0=dblarr(anz)+double(a(0)) &  calimb_p1=dblarr(anz)+double(a(1))-1 & tt2=dblarr(6,anz) & b=strarr(anz) & s=strarr(3)
 openr,1,fn & readf,1,s & readf,1,b & close,1
 for i=0l,anz-1 do begin
-   a=strsplit(b(i),' ',/extract) & tt(i)=a(0) & for j=0,5 do tt2(j,i)=double(a(1+j)) 
+   a=strsplit(b(i),' ',/extract) & tt(i)=a(0) & for j=0,5 do tt2(j,i)=double(a(1+j))
 endfor
 for i=0l,anz-1 do calimb_gid(i)=strmid(tt(i),9,5) & calimb_bn=tt2(3,*)
 ; filtering geodetic mass balances - replace strange values with regional mean IF area smaller than 20 km2 (trusting large glaciers)
-ii=where(tt2(5,*) eq 1,ci) & jj=where(tt2(5,*) eq 2,cj) & if cj eq 0 then calimb_bn(ii(ci-1))=total(tt2(0,ii)*calimb_bn(ii))/total(tt2(0,ii)) 
+ii=where(tt2(5,*) eq 1,ci) & jj=where(tt2(5,*) eq 2,cj) & if cj eq 0 then calimb_bn(ii(ci-1))=total(tt2(0,ii)*calimb_bn(ii))/total(tt2(0,ii))
 ; excluding values beyond 2 standard deviations
 a=stdev(calimb_bn(ii))
-jj=where(calimb_bn(ii) lt mean(calimb_bn(ii))-2*a and tt2(0,ii) lt 20,cj) & if cj gt 0 then calimb_bn(ii(jj))=calimb_bn(anz-1)  
-jj=where(calimb_bn(ii) gt mean(calimb_bn(ii))+2*a and tt2(0,ii) lt 20,cj) & if cj gt 0 then calimb_bn(ii(jj))=calimb_bn(anz-1)  
+jj=where(calimb_bn(ii) lt mean(calimb_bn(ii))-2*a and tt2(0,ii) lt 20,cj) & if cj gt 0 then calimb_bn(ii(jj))=calimb_bn(anz-1)
+jj=where(calimb_bn(ii) gt mean(calimb_bn(ii))+2*a and tt2(0,ii) lt 20,cj) & if cj gt 0 then calimb_bn(ii(jj))=calimb_bn(anz-1)
 
 ; recomputing mass changes when iterating for density of volume change
 if rhodv_iteration ne '' then begin
@@ -860,7 +879,7 @@ if rhodv_iteration ne '' then begin
    anz=file_lines(fn)-1 & da=dblarr(anz+1,anz) & tt=strarr(1) & openr,1,fn & readf,1,tt & readf,1,da & close,1 & ref_rhodv=da(anz,0)
    fn='/home/mhuss/papers/paper_density_global/results/overview_iteration'+$
      string(double(strmid(rhodv_iteration,10,1))-1,fo='(i1)')+'/rgi'+region_loop_data(1,ii(0))+'_'+region+'.dat'
-   anz=file_lines(fn)-1 & da=dblarr(11,anz) & openr,1,fn & readf,1,tt & readf,1,da & close,1 
+   anz=file_lines(fn)-1 & da=dblarr(11,anz) & openr,1,fn & readf,1,tt & readf,1,da & close,1
 
    ; updating mass balances
    for i=0l,n_elements(calimb_gid)-1 do begin
@@ -949,7 +968,7 @@ endif
 if toff_grid eq 'y' and calibration_phase eq '1' and calibrate eq 'y' then begin
    if rhodv_iteration ne '' then b='_rhodv' else b=''
    fn=dircali+dir_region+'/calibration/toff_m'+meltmodel+'_cID'+string(calperiod_ID,fo='(i1)')+'_'+sub_region+b+'.dat'
-   a=findfile(fn) 
+   a=findfile(fn)
    if a(0) ne '' then begin
       anz=file_lines(fn) & da=dblarr(5,anz)  & openr,1,fn & readf,1,da & close,1
       toff_data=dblarr(anz) & cali_id_toff=da(0,*)
@@ -1029,12 +1048,12 @@ if calibrate ne 'y' and write_file eq 'y' then begin
    if reanalysis_direct eq 'y' then a='PAST'+version_past else a=GCM_model(gcms)+'/'+GCM_rcp(rcps)
    if single_glacier ne '' then a='SINGLE'
 
-   if meltmodel eq '3' then plf='_m3' else plf='' 
-   if meltmodel eq '1' and calperiod_ID eq 8 then  plf='_debris' 
+   if meltmodel eq '3' then plf='_m3' else plf=''
+   if meltmodel eq '1' and calperiod_ID eq 8 then  plf='_debris'
    subpath='/files'+plf+'/'+a+'/'
 
    if meltmodel eq '1' then mtt='' else mtt='_m3'
-   if meltmodel eq '1' and calperiod_ID eq 8 then  mtt='_debris' 
+   if meltmodel eq '1' and calperiod_ID eq 8 then  mtt='_debris'
 
    if past_out eq 'y' and reanalysis_direct eq 'y' then subpath='/PAST'+version_past+mtt+'/'
    if past_out eq 'y' and hindcast_dynamic eq 'y' and reanalysis_direct eq 'y' then subpath='/PAST'+version_past+mtt+'/dyn/'
@@ -1083,11 +1102,11 @@ if calibrate eq 'y' then begin
       '2': printf,3,'ID        Ba         Bw     Area     ELA   AAR    dBdz   Bt    Fm       r_ice    r_snow   Cprec   T_off  Flag'
       '3': printf,3,'ID        Ba         Bw     Area     ELA   AAR    dBdz   Bt    C0       C1       a_ice    a_snow   Cprec  T_off  Flag'
    endcase
-   
+
    if calibrate_glacierspecific eq 'y' then begin
       openw,50,dircali+dir_region+'/calibration/calibrate_m'+meltmodel+'_cID'+string(calperiod_ID,fo='(i1)')+'_overview_glspec'+b+'.dat'
       printf,50,'ID      Y0    Y1    Target    Ba         Bw     Area     ELA   AAR    DDFsnow  DDFice   Cprec   T_off  Flag'
-   endif   
+   endif
 
    openw,4,dircali+dir_region+'/calibration/toff_m'+meltmodel+'_cID'+string(calperiod_ID,fo='(i1)')+'_'+sub_region+b+'.dat'
 endif
@@ -1212,7 +1231,7 @@ for m=1,12 do begin
       bias(1,m-1)=mean(gcm_prec(hh,kk(0),ii(0),jj(0)))/mean(rprec(dd,cc(0),bb(0)))
       if variability_bias eq 'y' then bias(2,m-1)=stdev(rtemp(dd,cc(0),bb(0)))/stdev(gcm_temp(hh,kk(0),ii(0),jj(0)))
    endif else begin
-      kk=where(gcm_year ge rea_eval(0) and gcm_year le rea_eval(1) and gcm_mon eq m)      
+      kk=where(gcm_year ge rea_eval(0) and gcm_year le rea_eval(1) and gcm_mon eq m)
       bias(0,m-1)=mean(gcm_temp(kk,jj(0),ii(0)))-mean(rtemp(dd,cc(0),bb(0)))
       bias(1,m-1)=mean(gcm_prec(kk,jj(0),ii(0)))/mean(rprec(dd,cc(0),bb(0)))
       if variability_bias eq 'y' then bias(2,m-1)=stdev(rtemp(dd,cc(0),bb(0)))/stdev(gcm_temp(kk,jj(0),ii(0)))
@@ -1222,7 +1241,7 @@ for m=1,12 do begin
 
 endfor
 
-; optionally restrict temperature bias to a minimum value - if extreme 
+; optionally restrict temperature bias to a minimum value - if extreme
 ; biases occur in Arctic regions air temperatures can suddenly become maximal
 ; during winter time
 if min_tempbias ne noval then begin
@@ -1250,23 +1269,23 @@ endif
 temp=dblarr((years+1)*12) & prec=temp & rad=temp & cyear=temp & cmon=temp & n=0l
 for i=0,years do begin
 ; use re-analysis data as long as available! After (AND before) use GCM data
-   if i+tran(0) le max(ryear) and i+tran(0) gt min(ryear) then begin   
+   if i+tran(0) le max(ryear) and i+tran(0) gt min(ryear) then begin
       for m=1,12 do begin
          bb=where(rlat eq rmid(0)) & cc=where(rlon eq rmid(1)) & hh=where(ryear eq i+tran(0)-1 and rmon eq m,ci)
          cyear(n)=i+tran(0)-1 & cmon(n)=m
          if ci gt 0 then begin
             temp(n)=rtemp(hh(0),cc(0),bb(0))
             prec(n)=rprec(hh(0),cc(0),bb(0))
-         endif else stop        
-         if meltmodel ne '1' then rad(n)=mrad(m-1)         
+         endif else stop
+         if meltmodel ne '1' then rad(n)=mrad(m-1)
          n=n+1
       endfor
    endif else begin
-; use projections only for unmeasured future   
+; use projections only for unmeasured future
       hh=where(gcm_year eq i+tran(0)-1)
       for m=1,12 do begin
          cyear(n)=i+tran(0)-1 & cmon(n)=m
-         
+
          if CMIP6 eq 'n' then begin
             kk=where(gcm_mon eq m)
             temp(n)=gcm_temp(hh(0),kk(0),ii(0),jj(0))-bias(0,m-1)
@@ -1278,14 +1297,14 @@ for i=0,years do begin
             if ck eq 0 then kk=where(gcm_year eq i+tran(0)-3 and gcm_mon eq m,ck)
             temp(n)=gcm_temp(kk(0),jj(0),ii(0))-bias(0,m-1)
             prec(n)=gcm_prec(kk(0),jj(0),ii(0))/bias(1,m-1)
-         endelse         
+         endelse
 
          if meltmodel ne '1' then rad(n)=mrad(m-1)
-         
+
          n=n+1
       endfor
    endelse
-   
+
 endfor
 
 ; --------------------
@@ -1362,7 +1381,7 @@ if min(da(1,*)) lt -300 or abs(a_gl(gg(g))-total(da(3,*)))*100./a_gl(gg(g)) gt 5
    nb=file_lines(fn)-5 & s=strarr(5) & da=dblarr(12,nb)
    openr,1,fn & readf,1,s & readf,1,da & close,1
 endif
-   
+
 ; add bands at glacier tongue
 if advance eq 'y' and nb gt 3 then begin
     adv_addband=adv_addband0
@@ -1415,39 +1434,39 @@ if write_mb_elevationbands eq 'y' then begin
    openw,8,dirres+dir_region+b+'/mb_elevation'+rhodv_iteration+'/belev_'+id(gg(g))+'.dat'
    a='' & for i=0,years-1 do a=a+string(i+tran(0),fo='(i4)')+'  '
    printf,8,'Elev  '+a+a
-   elev_bmb=dblarr(years,nb)+snoval & elev_bwb=elev_bmb 
+   elev_bmb=dblarr(years,nb)+snoval & elev_bwb=elev_bmb
 
-   ; elevation-specified refreezing files 
+   ; elevation-specified refreezing files
    c=findfile(dirres+dir_region+b+'/refr_elevation'+rhodv_iteration)
    if c(0) eq '' then begin
       spawn,'mkdir '+dirres+dir_region+b+'/refr_elevation'+rhodv_iteration & spawn,'chmod a+rx '+dirres+dir_region+b+'/refr_elevation'+rhodv_iteration
    endif
    openw,40,dirres+dir_region+b+'/refr_elevation'+rhodv_iteration+'/refrelev_'+id(gg(g))+'.dat'
    a='' & for i=0,years-1 do a=a+string(i+tran(0),fo='(i4)')+'  '
-   printf,40,'Elev  '+a &  elev_refr=dblarr(years,nb)+snoval 
+   printf,40,'Elev  '+a &  elev_refr=dblarr(years,nb)+snoval
 
    if debris_supraglacial eq 'y' then begin
-   ; elevation-specified debris files 
+   ; elevation-specified debris files
       c=findfile(dirres+dir_region+b+'/debris_elevation')
       if c(0) eq '' then begin
          spawn,'mkdir '+dirres+dir_region+b+'/debris_elevation' & spawn,'chmod a+rx '+dirres+dir_region+b+'/debris_elevation'
       endif
       openw,41,dirres+dir_region+b+'/debris_elevation/debthick_'+id(gg(g))+'.dat'
       a='' & for i=0,years-1 do a=a+string(i+tran(0),fo='(i4)')+'  '
-      printf,41,'Elev  '+a &  elev_debthick=dblarr(years,nb)+snoval 
+      printf,41,'Elev  '+a &  elev_debthick=dblarr(years,nb)+snoval
 
       openw,42,dirres+dir_region+b+'/debris_elevation/debfrac_'+id(gg(g))+'.dat'
-      printf,42,'Elev  '+a &  elev_debfrac=dblarr(years,nb)+snoval 
+      printf,42,'Elev  '+a &  elev_debfrac=dblarr(years,nb)+snoval
 
       openw,43,dirres+dir_region+b+'/debris_elevation/debfactor_'+id(gg(g))+'.dat'
-      printf,43,'Elev  '+a &  elev_debfactor=dblarr(years,nb)+snoval 
+      printf,43,'Elev  '+a &  elev_debfactor=dblarr(years,nb)+snoval
 
       ;openw,44,dirres+dir_region+b+'/debris_elevation/pondarea_'+id(gg(g))+'.dat'
-      ;printf,44,'Elev  '+a &  elev_pondarea=dblarr(years,nb)+snoval 
+      ;printf,44,'Elev  '+a &  elev_pondarea=dblarr(years,nb)+snoval
 
       if eval_mbelevsensitivity eq 'y' then begin
          openw,44,dirres+dir_region+b+'/debris_elevation/mbsensitivity_'+id(gg(g))+'.dat'
-         printf,44,'Elev  '+a &  elev_mbsens=dblarr(years,nb)+snoval &  elev_mbsensall=dblarr(count_mbelevsens_v0+1,years,nb)+snoval 
+         printf,44,'Elev  '+a &  elev_mbsens=dblarr(years,nb)+snoval &  elev_mbsensall=dblarr(count_mbelevsens_v0+1,years,nb)+snoval
       endif
    endif
 endif
@@ -1461,17 +1480,17 @@ if firnice_temperature eq 'y' then begin
       endif
       openw,45,dirres+dir_region+b+'/firnice_temperature/temp_1m_'+id(gg(g))+'.dat'
       a='' & for i=0,years-1 do a=a+string(i+tran(0),fo='(i4)')+'  '
-      printf,45,'Elev  '+a 
+      printf,45,'Elev  '+a
       elev_firnicetemp=dblarr(4,years,nb)+snoval ; all layers
 
       openw,46,dirres+dir_region+b+'/firnice_temperature/temp_10m_'+id(gg(g))+'.dat'
-      printf,46,'Elev  '+a 
+      printf,46,'Elev  '+a
 
       openw,47,dirres+dir_region+b+'/firnice_temperature/temp_50m_'+id(gg(g))+'.dat'
-      printf,47,'Elev  '+a 
+      printf,47,'Elev  '+a
 
       openw,48,dirres+dir_region+b+'/firnice_temperature/temp_bedrock_'+id(gg(g))+'.dat'
-      printf,48,'Elev  '+a 
+      printf,48,'Elev  '+a
 
    endif
 
@@ -1493,12 +1512,12 @@ if firnice_temperature eq 'y' then begin
             firnice_profile_ind(0,i)=ind & firnice_profile_ind(1,i)=elev0(firnice_profile_ind(0,i))
          endfor
       endelse
-      
+
       for j=0,n_elements(firnice_profile)-1 do begin
          openw,51+j,dirres+dir_region+b+'/firnice_temperature/temp_ID'+firnice_profile_ID(j)+'_'+id(gg(g))+'.dat'
          printf,51+j,'Point elevation  '+string(firnice_profile_ind(1,0),fo='(i4)')+' masl: Depth in m'
          a='' & for i=1,total(fit_layers)-1 do a=a+string(fit_dz(1,i),fo='(i4)')+'  '
-         printf,51+j,'Year  Month '+a 
+         printf,51+j,'Year  Month '+a
       endfor
    endif
 
@@ -1522,7 +1541,7 @@ if write_hypsometry_files eq 'y' then begin
       endif
    endfor
    hypso_file=dblarr(4,ctt,nb)+snoval &  printf,9,h &  printf,34,h &  printf,35,h & chypso=0
-endif 
+endif
 
 ; -----------------------------
 ; initialise some variables for the advance scheme
@@ -1597,8 +1616,8 @@ if debris_supraglacial eq 'y' then begin
    if a(0) ne '' then begin
       anz=file_lines(fn)-3 & s=strarr(3) & da=dblarr(3,anz)
       openr,1,fn & readf,1,s & readf,1,da & close,1
-      debris_type_th=da(1,*) & debris_type_red=da(2,*) 
-   endif 
+      debris_type_th=da(1,*) & debris_type_red=da(2,*)
+   endif
 endif
 
 ; ---------------------
@@ -1655,13 +1674,13 @@ if adv_lookup eq 'y' then adv_lookup_data=dblarr(3,nb,years)
 ; ********************************************
 ; MAIN LOOP over years
 
-if hindcast_dynamic eq 'y' then glacier_retreat='n'   
-if find_startyear eq 'y' then glacier_retreat='n'   
+if hindcast_dynamic eq 'y' then glacier_retreat='n'
+if find_startyear eq 'y' then glacier_retreat='n'
 if find_startyear eq 'n' then glacier_retreat='n'     ; unsure if well solved... static/dynamic runs (=> glogemflow) just separated by find_startyear
 
 ccmon=0l
 
-te_rf=dblarr(nb,rf_layers) & tl_rf=te_rf 
+te_rf=dblarr(nb,rf_layers) & tl_rf=te_rf
 
 ; firn/ice temperature, lowermost layer: bottom of ice if thick > domain
 ; initialise with long-term annual mean air temperature to get efficient spin up
@@ -1672,7 +1691,7 @@ for i=0,nb-1 do begin
    tt(i)=mean(a)
 endfor
 te_fit=dblarr(nb,total(fit_layers)+1)
-for i=0,nb-1 do te_fit(i,*)=tt(i) & tl_fit=te_fit 
+for i=0,nb-1 do te_fit(i,*)=tt(i) & tl_fit=te_fit
 
 
 for ye=0,years-1 do begin
@@ -1681,7 +1700,7 @@ if eval_mbelevsensitivity eq 'y' then begin
    count_mbelevsens=count_mbelevsens_v0 ; initialising to start value of counter
 
    mbelevsensitivity_again:
-   elev=elev0-count_mbelevsens*50.  ; elevation step 
+   elev=elev0-count_mbelevsens*50.  ; elevation step
    count_mbelevsens=count_mbelevsens-1
 endif
 
@@ -1693,14 +1712,14 @@ ii=where(gl ne noval,ci) & if ci gt 0 then ar_gl=total(area(ii)) else ar_gl=0
 if elev(0) gt elev(1)+100 then elev(0)=elev(1)
 
 ; allow glacier area changes in hindcast period after date of RGI
-if hindcast_dynamic eq 'y' then if ye+tran(0) ge survey_year(gg(g)) then glacier_retreat='y'    
+if hindcast_dynamic eq 'y' then if ye+tran(0) ge survey_year(gg(g)) then glacier_retreat='y'
 
 ; determining date for starting the retreat of each individual glacier
 ; depending on RGI-outline date (GLACIER-SPECIFIC!) - take care for evaluation
-if find_startyear eq 'y' then if ye+tran(0) gt survey_year(gg(g)) then glacier_retreat='y' 
+if find_startyear eq 'y' then if ye+tran(0) gt survey_year(gg(g)) then glacier_retreat='y'
 
-; glacier retreat to 'n' if local mass balance gradients are evaluated 
-if eval_mbelevsensitivity eq 'y' then glacier_retreat='n' 
+; glacier retreat to 'n' if local mass balance gradients are evaluated
+if eval_mbelevsensitivity eq 'y' then glacier_retreat='n'
 
 ; different parts of hydrological year
 for d=0,1 do begin
@@ -1800,7 +1819,7 @@ if ci gt 0 then begin
    for i=0l,ci-1 do begin
       a=min(abs(debris_thick(ii(i))-debris_type_th),ind) ; looking for closest value (may be improved by interpolating)
       if write_mb_elevationbands eq 'y' then debris_red_factor(ii(i))=debris_type_red(ind)
-      ; debris-covered ice + bare ice + area of ponds/cliffs 
+      ; debris-covered ice + bare ice + area of ponds/cliffs
       mel(ii(i))=(debris_frac(0,ii(i))-debris_ponddens(ii(i)))*debris_type_red(ind)*mel(ii(i))  +  (1.-debris_frac(0,ii(i)))*mel(ii(i))  +  debris_ponddens(ii(i))*debris_pond_enhancementfactor*mel(ii(i))
    endfor
    imelt(ye)=imelt(ye)+total(mel(ii)*area(ii))/ar_gl   ; updating array from above
@@ -1910,7 +1929,7 @@ ii=where(gl ne noval,ci)
 for i=0,ci-1 do begin
 
 ; generate local, and actualized arrays for layer heat capacity, condictivity and density
-dens_fit=dblarr(total(fit_layers))+900  
+dens_fit=dblarr(total(fit_layers))+900
 a=fix(sno(ii(i))/(fit_dens(1)/1000.)) ; number of snow layers
 if a gt 18 then a=18            ; preventing too many layers for extreme snow depth (??)
 ; replacing top of density profile with snow values
@@ -1936,9 +1955,9 @@ endif
          tl_fit(ii(i),0)=min([0,tgs(ii(i))]) ; temperature of topmost layer corresponding to air temperature or melting point!
          ; temperature of bottommost layer warmed up by geothermal heat flux (cumulative energy over one time step over a )
          ttgeot=tl_fit(ii(i),tt-1)+geothermal_flux*(3600*24*30.5/rf_dsc)/cice       ; /fit_dz(0,tt-1) ; unclear how to attribute a layer thickness for collecting flux (1m at the moment...)
-         
+
          tl_fit(ii(i),tt-1)=min([ttgeot,(fit_dz(1,tt-1)*0.9/10.)*(-0.00742)])    ; cannot be higher than pressure melting point
-         
+
          te_fit(ii(i),j)=tl_fit(ii(i),j)+((rf_dt*cond_fit(j)/(cap_fit(j))*(tl_fit(ii(i),j-1)-tl_fit(ii(i),j))/fit_dz(0,j)^2.)- $
              (rf_dt*cond_fit(j)/(cap_fit(j))*(tl_fit(ii(i),j)-tl_fit(ii(i),j+1))/fit_dz(0,j)^2.))/2. ; division by 2 to be removed?! result becomes unstable without ?!?
          tl_fit(ii(i),j)=te_fit(ii(i),j)
@@ -1961,8 +1980,8 @@ for j=1,tt-2 do begin ; loop through all considered layers from top, and update 
    c=(-1)*(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*cap_fit(j)*fit_dz(0,j)/Lh_rf ; cold content in layer below pressure melting point
    if fit_water gt c then begin   ; temperate layer if cold reservoir used, remaining water being transferred
       tl_fit(ii(i),j)=(fit_dz(1,j)*0.9/10.)*(-0.00742) & fit_water=fit_water-c
-   endif else begin  
-      if c gt 0 and fit_water gt 0 then tl_fit(ii(i),j)=tl_fit(ii(i),j)-(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*(fit_water/c)   
+   endif else begin
+      if c gt 0 and fit_water gt 0 then tl_fit(ii(i),j)=tl_fit(ii(i),j)-(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*(fit_water/c)
       fit_water=fit_water-c
    endelse
  ;  if j eq 10 and ii(i) eq 245 then print, m,c,fit_water,tl_fit(ii(i),10)
@@ -1977,24 +1996,24 @@ for j=1,ck do begin ; loop through all SNOW layers from top, and update temperat
    c=(-1)*(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*cap_fit(j)*fit_dz(0,j)/Lh_rf ; cold content in layer below pressure melting point
    if fit_water gt c then begin   ; temperate layer if cold reservoir used, remaining water being transferred
       tl_fit(ii(i),j)=(fit_dz(1,j)*0.9/10.)*(-0.00742) & fit_water=fit_water-c
-   endif else begin  
-      if c gt 0 and fit_water gt 0 then tl_fit(ii(i),j)=tl_fit(ii(i),j)-(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*(fit_water/c)   
+   endif else begin
+      if c gt 0 and fit_water gt 0 then tl_fit(ii(i),j)=tl_fit(ii(i),j)-(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*(fit_water/c)
       fit_water=fit_water-c
    endelse
 endfor
 
 ; reduce liquid water input through glacier ice by a factor proportional to local characteristics (thickness / slope ~flow speed)
 f=(slope(ii(i))^2*fact_permeability(0))*(thick(ii(i))*fact_permeability(1))
-if f gt 0.5 then f=0.5     ; setting maximum value for overall reduction factor - to be assessed 
-if f lt 0.0001 then f=0.0001     ; setting minimum value for overall reduction factor - to be assessed 
+if f gt 0.5 then f=0.5     ; setting maximum value for overall reduction factor - to be assessed
+if f lt 0.0001 then f=0.0001     ; setting minimum value for overall reduction factor - to be assessed
 fit_water=fit_water*f      ; reducing amount of water entering glacier ice
 
 for j=ck+1,tt-2 do begin ; loop through all ICE layers from top, and update temperatures
    c=(-1)*(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*cap_fit(j)*fit_dz(0,j)/Lh_rf ; cold content in layer below pressure melting point
    if fit_water gt c then begin   ; temperate layer if cold reservoir used, remaining water being transferred
       tl_fit(ii(i),j)=(fit_dz(1,j)*0.9/10.)*(-0.00742) & fit_water=fit_water-c
-   endif else begin  
-      if c gt 0 and fit_water gt 0 then tl_fit(ii(i),j)=tl_fit(ii(i),j)-(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*(fit_water/c)   
+   endif else begin
+      if c gt 0 and fit_water gt 0 then tl_fit(ii(i),j)=tl_fit(ii(i),j)-(tl_fit(ii(i),j)-((fit_dz(1,j)*0.9/10.)*(-0.00742)))*(fit_water/c)
       fit_water=fit_water-c
    endelse
 ;   if j eq 10 and ii(i) eq 20 then print, m,c,fit_water,tl_fit(ii(i),20),f
@@ -2006,8 +2025,8 @@ endelse
 if firnice_write(0) eq 'y' then begin
          ; maximum temperature in layer during one year
    elev_firnicetemp(0,ye,ii(i))=max([elev_firnicetemp(0,ye,ii(i)),tl_fit(ii(i),2)])  ; 2m
-   elev_firnicetemp(1,ye,ii(i))=max([elev_firnicetemp(1,ye,ii(i)),tl_fit(ii(i),10)]) ; 10m 
-   elev_firnicetemp(2,ye,ii(i))=max([elev_firnicetemp(2,ye,ii(i)),tl_fit(ii(i),18)]) ; 50m 
+   elev_firnicetemp(1,ye,ii(i))=max([elev_firnicetemp(1,ye,ii(i)),tl_fit(ii(i),10)]) ; 10m
+   elev_firnicetemp(2,ye,ii(i))=max([elev_firnicetemp(2,ye,ii(i)),tl_fit(ii(i),18)]) ; 50m
    elev_firnicetemp(3,ye,ii(i))=max([elev_firnicetemp(3,ye,ii(i)),tl_fit(ii(i),30)]) ; bedrock
 endif
 
@@ -2036,7 +2055,7 @@ if cj gt 0 then begin
    if ch gt 0 then mel(jj(hh))=mel(jj(hh))+sno(jj(hh))
  ; correction for ice-free area in glacierized elevation bands - only relevant for calculating catchment discharge
    hh=where(gl(jj) ne noval,ch)
-   if ch gt 0 then corrdis(jj(hh))=mel(jj(hh))+sno(jj(hh))  
+   if ch gt 0 then corrdis(jj(hh))=mel(jj(hh))+sno(jj(hh))
    sno(jj)=0
 endif
 
@@ -2070,7 +2089,7 @@ if ar_gl ne 0 then begin
    if outf_names(14) ne '' then begin
       balmo(ccmon-1)=total((psg-mel+refr)*area)/ar_gl & melmo(ccmon-1)=total(mel*area)/ar_gl
       accmo(ccmon-1)=total(psg*area)/ar_gl & refrmo(ccmon-1)=total(refr*area)/ar_gl
-      discharge_gl(ccmon-1)=(total(mel*area)+total(plg*area)-total(refr*area))/ar_gl & precmo(ccmon-1)=total((psg+plg)*area)/ar_gl 
+      discharge_gl(ccmon-1)=(total(mel*area)+total(plg*area)-total(refr*area))/ar_gl & precmo(ccmon-1)=total((psg+plg)*area)/ar_gl
 
 ; for entire catchment
       balmo(ccmon-1)=total((psg-mel+refr)*area)/total(area_ini) & refrmo(ccmon-1)=total(refr*area)/total(area_ini)
@@ -2104,14 +2123,14 @@ endfor                          ; parts of hydrological year
 ; evaluations for mass balance sensitivity to elevation
 if eval_mbelevsensitivity eq 'y' then begin
    if count_mbelevsens ge 0 then begin
-      ccmon=ccmon-12  ; set back the months counter      
-      goto, mbelevsensitivity_again 
+      ccmon=ccmon-12  ; set back the months counter
+      goto, mbelevsensitivity_again
    endif else begin
       bb=n_elements(elev_mbsensall(*,0,0)) & a=dblarr(1,bb) & b=dblarr(bb) & c=b
       for i=0,nb-1 do begin
          for j=0,bb-1 do a(0,j)=elev_mbsensall(j,ye,i) & for j=0,bb-1 do b(j)=j*50*(-1.) & for j=0,bb-1 do c(j)=1. ; c not needed for IDL!
          ; tt=correlate(a,b)  ; use this for IDL!
-         tt=regress(a,b,c) 
+         tt=regress(a,b,c)
          elev_mbsens(ye,i)=1./tt*100.    ; local mass balance gradient in year ye in m w.e. / 100m
       endfor
    endelse
@@ -2149,7 +2168,7 @@ if cb gt 0 then vol_bz(ye)=vol_bz(ye)-0.001*total(bed_elev(bb)*area(bb))
 ; more statistics
 jj=where(thick gt 0,cj)
 if cj gt 0 then begin
-   ht1=elev(jj(0)) 
+   ht1=elev(jj(0))
    ii=where(bal(jj) gt 0,ci) & if ci gt 0 then aar(ye)=total(area_stor(jj(ii)))*100./area1 else aar(ye)=0
    btongue(ye)=min(bal(jj),ind) &  if ci gt 0 then ela(ye)=elev(jj(ii(0))) else ela(ye)=max(elev)
    da=(elev(jj(ind))-ela(ye)) & if abs(da) gt 20 then dbdz(ye)=btongue(ye)/da else dbdz(ye)=0.
@@ -2204,7 +2223,7 @@ if ye+tran(0) gt survey_year(gg(g)) then debris_time=ye+tran(0)-survey_year(gg(g
 ; spatial expansion of debris and ponds/cliffs over time
 ;    clean-ice glacier will remain clean-ice glaciers!
 ;    glaciers without ponds/cliff will not get any!
-if debris_expansion eq 'y' and debris_time gt 0 then begin        
+if debris_expansion eq 'y' and debris_time gt 0 then begin
 
 ; debris extension
 count_seed_bands=0
@@ -2221,10 +2240,10 @@ count_seed_bands=0
       if i gt 0 and i lt nb-2 and count_seed_bands le debris_seed_meters/step then begin
          if debris_frac(i) eq 0 and max(debris_frac(i-1:i+1)) gt 0 then begin
             debris_frac(i)=(debris_frac(i-1)+debris_frac(i+1))/2
-            debris_thick(i)=debris_initialband 
+            debris_thick(i)=debris_initialband
             count_seed_bands=count_seed_bands+1
          endif
-      endif   
+      endif
    endfor
 
 ; extension of ponds and cliffs (to used as no global data on ponds and cliffs are available)
@@ -2234,7 +2253,7 @@ count_seed_bands=0
       if debris_ponddens(i) gt 0 then begin
          if bal(i) lt 0 and gl(i) ne noval then debris_ponddens(i)=debris_ponddens(i)+(debris_pond_gradient/100.)*bal(i)*mean(mb(ye-min([ye,10]):ye))*max([debris_ponddens(i),0.02])
          ; max([debris_ponddens(i),0.02]) min value of 0.02 to be verified
-         if debris_ponddens(i) gt debris_ponddens_max then debris_ponddens(i)=debris_ponddens_max 
+         if debris_ponddens(i) gt debris_ponddens_max then debris_ponddens(i)=debris_ponddens_max
       endif
       ; case 2: no ponds (yet) present in band => seeding from neighbouring bands
       ;   initial pond seed is the average of surrounding bands
@@ -2244,7 +2263,7 @@ count_seed_bands=0
             debris_ponddens(i)=(debris_ponddens(i-1)+debris_ponddens(i+1))/2
             count_seed_bands=count_seed_bands+1
          endif
-      endif   
+      endif
    endfor
 
 endif
@@ -2254,17 +2273,17 @@ if debris_thickening eq 'y' and debris_time gt 0 then begin       ; thickening o
 
    for i=0,medelev do begin
       ; original code
-;      if debris_thick(i) gt 0 then debris_thick(i)=debris_thick0(i)+(debris_thick_gradient/100.)*debris_time*(elev(medelev)-elev(i))/1000. 
+;      if debris_thick(i) gt 0 then debris_thick(i)=debris_thick0(i)+(debris_thick_gradient/100.)*debris_time*(elev(medelev)-elev(i))/1000.
 
       ; Compagno et al 2021, scaled with local MB, glacier-wide MB, mean initial debris thickness
-      ; if debris_frac(i) gt 0 then debris_thick(i)=debris_thick(i)+(debris_thick_gradient/100.)*bal(i)*mean(mb(ye-min([ye,10]):ye))*mean(debris_thick0(0:medelev))    
+      ; if debris_frac(i) gt 0 then debris_thick(i)=debris_thick(i)+(debris_thick_gradient/100.)*bal(i)*mean(mb(ye-min([ye,10]):ye))*mean(debris_thick0(0:medelev))
 
       ; revised to allow more thickening on originally thin debris
       if debris_frac(i) gt 0 then begin
          kk=where(debris_thick0 gt 0,ck) & if ck gt 0 then mean_debris_t=mean(debris_thick0(kk)) else mean_debris_t=debris_initialband
       ; account for effective mass balance in debris-covered area, instead of mass balance of entire elevation band!
          debris_baleff=bal(i)/(debris_frac(i)*debris_red_factor(i)+(1-debris_frac(i)))
-         debris_thick(i)=debris_thick(i)+(debris_thickening_fact/100.)*debris_baleff*mean(mb(ye-min([ye,10]):ye))*mean_debris_t     
+         debris_thick(i)=debris_thick(i)+(debris_thickening_fact/100.)*debris_baleff*mean(mb(ye-min([ye,10]):ye))*mean_debris_t
       endif
    endfor
    ii=where(debris_thick lt 0,ci) & if ci gt 0 then debris_thick(ii)=0
@@ -2299,7 +2318,7 @@ dens=0.9 & dvol=dvol/dens
 ; -----------------------------
 ; volume loss due to frontal ablation
 
-ii=where(thick gt 0,ci) & fa='n' 
+ii=where(thick gt 0,ci) & fa='n'
 if ci gt 6 then begin
    jj=where(bed_elev(ii) lt 0,cj)
    if min(bed_elev(ii(0:1))) lt 0 and cj gt 1 then fa='y'
@@ -2327,8 +2346,8 @@ q_front=F*eff_width*(-1.)
 ; * implementation until Jan 2021
 ;if glacier_retreat eq 'y' then fcfact=5.0 else fcfact=0.75
 ; different constraints for antarctica
-;if dir_region eq 'Antarctic' then if glacier_retreat eq 'y' then fcfact=5.0 else fcfact=0.25   
-;if dir_region eq 'Greenland' then if glacier_retreat eq 'y' then fcfact=5.0 else fcfact=0.40   
+;if dir_region eq 'Antarctic' then if glacier_retreat eq 'y' then fcfact=5.0 else fcfact=0.25
+;if dir_region eq 'Greenland' then if glacier_retreat eq 'y' then fcfact=5.0 else fcfact=0.40
 ; * implementation from feb 2021 - keep threshold constant, also for future to avoid break
 fcfact=1.0
 
@@ -2419,7 +2438,7 @@ if advance eq 'y' and dvol gt 0 and f gt adv_fcrit then begin
    ; 95% for CALVING GLACIERS
    adv_delevcrit_frac=0.1
    kk=where(gl ne noval,ck) & if ck gt 0 and bed_elev(kk(0)) lt 0 then adv_delevcrit_frac=0.95
-   adv_delevcrit=delev(ii(fix(ci*adv_delevcrit_frac))) 
+   adv_delevcrit=delev(ii(fix(ci*adv_delevcrit_frac)))
    b=max(delev,ind) & if adv_delevcrit eq b then  adv_delevcrit=max(delev(where(delev ne b)))
    a=delev-adv_delevcrit & jj=where(a gt 0,cj)
    if cj gt 0 then v_adv=total(a(jj)*area(jj)) else v_adv=0 ; mio m3
@@ -2427,7 +2446,7 @@ if advance eq 'y' and dvol gt 0 and f gt adv_fcrit then begin
 
 ; remove tiny thickness values (unclear where they are generated...)
    jj=where(thick lt 0.01,cj) & if cj gt 0 then thick(jj)=0 & if cj gt 0 then area(jj)=0
-   
+
 	; distribute excess volume
    hh=where(area ne 0,cj) & tt=thick
    if cj gt 0 and hh(0) ne 0 then begin ; only if there is space in front of the glacier
@@ -2443,7 +2462,7 @@ if advance eq 'y' and dvol gt 0 and f gt adv_fcrit then begin
          v_adv=v_adv-adv_iniar*(tt(i+1)+adv_delevcrit)
          delev(i)=tt(i+1)+adv_delevcrit & tt(i)=tt(i+1)
          if v_adv lt 0 then begin
-              ; correct thickness of last added elevation band for overshoot 
+              ; correct thickness of last added elevation band for overshoot
             delev(i)=delev(i)+v_adv/adv_iniar
             goto, endsearch
          endif
@@ -2479,7 +2498,7 @@ thick(ii)=thick(ii)+delev(ii)    ; thickness
 ; set bedrock elevation for new elevation bands (important for calving glaciers)
 jj=where(bed_elev eq elev and thick gt 0 and elev eq elev0,cj) & if cj gt 0 then bed_elev(jj)=elev(jj)-thick(jj)
 ; hack for artificially putting new bands into the ocean if the glacier is already calving
-if fa eq 'y' and cj gt 0 then bed_elev(jj)=bed_elev(jj)+min(bed_elev)  
+if fa eq 'y' and cj gt 0 then bed_elev(jj)=bed_elev(jj)+min(bed_elev)
 for i=0,cj-1 do if width(jj(i)) gt (crit_ccorrdist/2.) then bed_elev_p(jj(i))=bed_elev(jj(i))-thick(jj(i))*bedrock_parabolacorr*(crit_ccorrdist/2.)/width(jj(i))
 
 jj=where(thick le 0,cj)
@@ -2489,7 +2508,7 @@ if cj gt 0 then begin
       if abs(total(dh(ii)*area(ii))) gt 0 then  fcorr=vol_lost/(total(dh(ii)*area(ii))) else fcorr=0.
       thick(ii)=thick(ii)+dh(ii)*fcorr
       jj=where(thick le 0,cj)
-   endif  
+   endif
    thick(jj)=0 & area(jj)=0 & elev(jj)=bed_elev(jj)     ; set to zero if no glacier left
 endif
 
@@ -2527,7 +2546,7 @@ endif
 ; terminus break-off due to calving
 
 ; cut off elevation bands located below sea level and add mass loss to calving
-ii=where(elev lt 0 and area gt 0,ci)   
+ii=where(elev lt 0 and area gt 0,ci)
 if ci gt 0 then begin
    q_calv=q_calv+total(thick(ii)*area(ii))*1000000.
    flux_calv(ye)=flux_calv(ye)+q_calv/1000000.*dens/ar_gl
@@ -2627,15 +2646,15 @@ endif
 
 ; account for calving fluxes during the calibration period !!!
 ; limited to a meaningful level
-c_mb=mean(mb)-min([2,mean(flux_calv)])   
+c_mb=mean(mb)-min([2,mean(flux_calv)])
 if calibrate_glacierspecific eq 'y' then begin
    ccj=where(calimb_gid eq id(gg(g)),ci)
-   if ci eq 0 then ccj=n_elements(target_spec)-1    ; when no data present, just use last value (regional mean) 
-   if ci gt 1 then target=mean(target_spec(ccj)) $    ; averaging in case several entries are available for the same RGI-ID (Caucasus) 
+   if ci eq 0 then ccj=n_elements(target_spec)-1    ; when no data present, just use last value (regional mean)
+   if ci gt 1 then target=mean(target_spec(ccj)) $    ; averaging in case several entries are available for the same RGI-ID (Caucasus)
      else target=target_spec(ccj(0))
    n=indgen(years)+tran(0)
    pp=where(n gt calimb_p0(ccj(0)) and n le calimb_p1(ccj(0)))
-   c_mb=mean(mb(pp))-min([2,mean(flux_calv(pp))])   
+   c_mb=mean(mb(pp))-min([2,mean(flux_calv(pp))])
 endif
 
 if abs(target-c_mb) gt cal_crit then begin
@@ -2687,7 +2706,7 @@ endif
 ; setting back flags if glacier - IF NECESSARY
 flag=0
 if cal1 ge cal1max and calibrate eq 'y' then begin
-   
+
 if cal1 eq cal1max+2 then flag=1
 if calibration_phase eq '1' then begin
    if c_prec lt c1_tolerance(0) then c_prec=c1_tolerance(0)
@@ -2750,9 +2769,9 @@ if calibrate eq 'y' then begin
       else printf,50,id(gg(g)),cran(0),cran(1),target,-99,-99,area1,mean(ela),mean(aar),DDFsnow,DDFice,c_prec,$
                   t_offset,flag,fo='(a,2i7,3f9.3,f11.3,i6,f6.1,2f7.3,f9.3,f7.2,i3)'
    endelse
-   
+
    printf,4,id(gg(g)),t_offset,flag,gx,gy,fo='(a,f9.3,3i4)'
-   
+
 endif
 
 cali_calflux=cali_calflux+mean(flux_calv)/1000.*ar_gl
@@ -2796,16 +2815,16 @@ fn=dir_data+'/'+region+'/'+id(gg(g))+'.dat' & a=findfile(fn)
 if write_mb_elevationbands eq 'y' and a(0) ne '' then begin
    ii=where(thick_ini eq 0,ci) & if ci gt 0 then elev_bmb(*,ii)=snoval & if ci gt 0 then elev_bwb(*,ii)=snoval & if ci gt 0 then elev_refr(*,ii)=snoval
    for i=0,n_elements(elev_bmb(0,*))-1 do printf,8,elev0(i),elev_bmb(*,i),elev_bwb(*,i),fo='(i6,'+strcompress(string(2*years,fo='(i3)'),/remove_all)+'f7.2)'
-   close,8 
-   for i=0,n_elements(elev_bmb(0,*))-1 do printf,40,elev0(i),elev_refr(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f7.1)' &  close,40 
+   close,8
+   for i=0,n_elements(elev_bmb(0,*))-1 do printf,40,elev0(i),elev_refr(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f7.1)' &  close,40
    if debris_supraglacial eq 'y' then begin
-      for i=0,n_elements(elev_bmb(0,*))-1 do printf,41,elev0(i),elev_debthick(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,41 
-      for i=0,n_elements(elev_bmb(0,*))-1 do printf,42,elev0(i),elev_debfrac(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,42 
-      for i=0,n_elements(elev_bmb(0,*))-1 do printf,43,elev0(i),elev_debfactor(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f10.5)' &  close,43 
-     ; for i=0,n_elements(elev_bmb(0,*))-1 do printf,44,elev0(i),elev_pondarea(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f11.6)' &  close,44       
+      for i=0,n_elements(elev_bmb(0,*))-1 do printf,41,elev0(i),elev_debthick(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,41
+      for i=0,n_elements(elev_bmb(0,*))-1 do printf,42,elev0(i),elev_debfrac(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,42
+      for i=0,n_elements(elev_bmb(0,*))-1 do printf,43,elev0(i),elev_debfactor(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f10.5)' &  close,43
+     ; for i=0,n_elements(elev_bmb(0,*))-1 do printf,44,elev0(i),elev_pondarea(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f11.6)' &  close,44
       if eval_mbelevsensitivity eq 'y' then begin
          for i=0,n_elements(elev_bmb(0,*))-1 do printf,44,elev0(i),elev_mbsens(*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f9.4)'
-         close,44      
+         close,44
       endif
    endif
 endif
@@ -2815,10 +2834,10 @@ endif
 if firnice_temperature eq 'y' then begin
 
    if firnice_write(0) eq 'y' then begin
-      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,45,elev0(i),elev_firnicetemp(0,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,45 
-      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,46,elev0(i),elev_firnicetemp(1,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,46 
-      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,47,elev0(i),elev_firnicetemp(2,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,47 
-      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,48,elev0(i),elev_firnicetemp(3,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,48 
+      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,45,elev0(i),elev_firnicetemp(0,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,45
+      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,46,elev0(i),elev_firnicetemp(1,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,46
+      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,47,elev0(i),elev_firnicetemp(2,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,47
+      for i=0,n_elements(elev_firnicetemp(0,0,*))-1 do printf,48,elev0(i),elev_firnicetemp(3,*,i),fo='(i6,'+strcompress(string(years,fo='(i3)'),/remove_all)+'f8.3)' &  close,48
    endif
 
    if firnice_write(1) eq 'y' then begin
@@ -3099,7 +3118,7 @@ for i=0l,anz-1 do begin
       if da(10+a,i) le c1_tolerance(0)+0.005 then flag_eval(i)=2
       if da(10+a,i) ge c1_tolerance(1)-0.005 then flag_eval(i)=3
    endif  else begin
-      if meltmodel eq 1 then if da(8+a,i) eq c2_tolerance(0)+0.005 or da(8+a,i) eq c2_tolerance(1)-0.005 then flag_eval(i)=0 
+      if meltmodel eq 1 then if da(8+a,i) eq c2_tolerance(0)+0.005 or da(8+a,i) eq c2_tolerance(1)-0.005 then flag_eval(i)=0
       if meltmodel eq 3 then if da(7+a,i) eq c2_tolerance(0)+0.005 or da(7+a,i) eq c2_tolerance(1)-0.005 then flag_eval(i)=0
    endelse
 endfor
@@ -3148,8 +3167,8 @@ if calibrate eq 'y' then begin
 
    if repeat_calibration eq 'y' then begin
       rp_cali=rp_cali+1
-      if toff_grid0 eq 'y' and rp_cali eq 1 then goto, repeat_cali 
-      if toff_grid0 eq 'y' and rp_cali gt 1 and rp_cali le 4 and ci*100/anz gt 0.2 then goto, repeat_cali 
+      if toff_grid0 eq 'y' and rp_cali eq 1 then goto, repeat_cali
+      if toff_grid0 eq 'y' and rp_cali gt 1 and rp_cali le 4 and ci*100/anz gt 0.2 then goto, repeat_cali
    endif
 endif
 
