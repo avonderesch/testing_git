@@ -1,20 +1,3 @@
- res_mod_set
-
-; what if I do something stupid in the model code
-
-
-; this is second test
-
-; now Alex is doing something stupid
-
-; this is matthias
-; I am adding some code and abit more and even more
-
-for 1, 10 begin
-  print, 1
-endfor
-
-
 =======
  main
 ; supporting procedure for plotting
