@@ -11,7 +11,7 @@ If during the testing you notice that something in the [manual](https://docs.goo
         
   - [ ] Fetch origin: update your local copy of the repository. (See how the new/changed documents are now saved on your computer)
   
-  - [ ] Edit an excisting document or add a new document to your working branch - commit these changes
+  - [ ] Edit an exsisting document or add a new document to your working branch - commit these changes
 
   - [ ] Push changes to the remote; also try to retract your push (in case you have made a mistake) 
 
@@ -21,7 +21,7 @@ If during the testing you notice that something in the [manual](https://docs.goo
 > This step is especially important when merging to the main!
 
 > [!NOTE]
-> A merge conflict is usually indicated as the lines in the conflicting file with between these symbols: >>>>>>>       <<<<<<<<<. You can then manually adjust the code. In order to avoid having these conflicts, it is important to regurlary update the repository and commit all excisting changes.
+> A merge conflict is usually indicated as the lines in the conflicting file with between these symbols: >>>>>>>       <<<<<<<<<. You can then manually adjust the code. In order to avoid having these conflicts, it is important to regurlary update the repository and commit all exsisting changes.
 
 Have fun using Git! 
 
