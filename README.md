@@ -1,3 +1,2 @@
-# GloGEM_m
-Global Glacier Evolution Model run on a monthly time step 
-This is the main branch. Only push to here if a model development has been tested and agreed on
+# Testing git
+This is a repository where you can test and play with git, without creating chaos in the actual code ;-) 
