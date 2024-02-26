@@ -3,6 +3,8 @@ This is a repository where you can test and play with git, without creating chao
 
 If during the testing you notice that something in the [manual](https://docs.google.com/document/d/1JhibwIaHHVdITBseGMIbSq1g5nHy6fbarBpNsaSCoUM/edit?usp=drive_link) was not explained good enough or needs to be added, please include it yourself or ask Alex to add it. 
 
+The script test_Git.pro is a short script that can be used for these exercises. 
+
 (I) Decide on where you want to use git on your local computer/linux: command prompt or gui (example: github desktop, VS Code)
 
 (II) Once you have decided you can train the following procedures
