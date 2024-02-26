@@ -15,7 +15,7 @@ If during the testing you notice that something in the [manual](https://docs.goo
 
   - [ ] Push changes to the remote; also try to retract your push (in case you have made a mistake) 
 
-  - [ ] Performe a pull-merge request; see how it can be accepted/declined; see how potential merge conflicts are shown and how to resolve them
+  - [ ] Performe a pull-merge request; see how it can be accepted/declined, you can also review it and request a change; see how potential merge conflicts are shown and how to resolve them
 
 > [!NOTE]
 > This step is especially important when merging to the main!
