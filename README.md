@@ -5,6 +5,8 @@ hallo this is a test
 
 If during the testing you notice that something in the [manual](https://docs.google.com/document/d/1JhibwIaHHVdITBseGMIbSq1g5nHy6fbarBpNsaSCoUM/edit?usp=drive_link) was not explained good enough or needs to be added, please include it yourself or ask Alex to add it. 
 
+The script test_Git.pro is a short script that can be used for these exercises. 
+
 (I) Decide on where you want to use git on your local computer/linux: command prompt or gui (example: github desktop, VS Code)
 
 (II) Once you have decided you can train the following procedures
@@ -17,7 +19,7 @@ If during the testing you notice that something in the [manual](https://docs.goo
 
   - [ ] Push changes to the remote; also try to retract your push (in case you have made a mistake) 
 
-  - [ ] Performe a pull-merge request; see how it can be accepted/declined; see how potential merge conflicts are shown and how to resolve them
+  - [ ] Performe a pull-merge request; see how it can be accepted/declined, you can also review it and request a change; see how potential merge conflicts are shown and how to resolve them - best to do this with a second person that can then accept requested changes, accept the merges, etc. 
 
 > [!NOTE]
 > This step is especially important when merging to the main!
