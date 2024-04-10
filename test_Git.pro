@@ -4,7 +4,7 @@ min_temp = -10.0  ; Minimum temperature value
 max_temp = 15.0   ; Maximum temperature value
 
 min_prec = 0  ; Minimum temperature value
-max_prec = 20.0   ; Maximum temperature value
+max_prec = 15.0   ; Maximum temperature value
 
 
 
