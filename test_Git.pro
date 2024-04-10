@@ -4,7 +4,7 @@ min_temp = -10.0  ; Minimum temperature value
 max_temp = 15.0   ; Maximum temperature value
 
 min_prec = 0  ; Minimum temperature value
-max_prec = 15.0   ; Maximum temperature value
+max_prec = 20.0   ; Maximum temperature value
 
 
 
@@ -15,7 +15,7 @@ random_numbers = RANDOMU(seed, n_elements)
 temperature_values = min_temp + random_numbers * (max_temp - min_temp)
 precipitation_values = min_prec + random_numbers * (max_prec - min_prec)
 
-snow=1
+snow=0
 
 for i=0, 9 do begin
 
