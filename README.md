@@ -1,6 +1,8 @@
 # Testing git
 This is a repository where you can test and play with git, without creating chaos in the actual code ;-) 
 
+hallo this is a test
+
 If during the testing you notice that something in the [manual](https://docs.google.com/document/d/1JhibwIaHHVdITBseGMIbSq1g5nHy6fbarBpNsaSCoUM/edit?usp=drive_link) was not explained good enough or needs to be added, please include it yourself or ask Alex to add it. 
 
 (I) Decide on where you want to use git on your local computer/linux: command prompt or gui (example: github desktop, VS Code)
