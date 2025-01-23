@@ -17,6 +17,7 @@ precipitation_values = min_prec + random_numbers * (max_prec - min_prec)
 
 snow=0
 ; hello from Lander
+; hello from Friedrich
 for i=0, 9 do begin
 
 print, i
