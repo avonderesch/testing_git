@@ -6,7 +6,7 @@ max_temp = 15.0   ; Maximum temperature value
 min_prec = 0  ; Minimum temperature value
 max_prec = 15.0   ; Maximum temperature value
 
-
+; Marit
 <<<<<< HEAD
 ; hello from alex and hello too from Lander 
 =======
