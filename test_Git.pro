@@ -16,7 +16,7 @@ temperature_values = min_temp + random_numbers * (max_temp - min_temp)
 precipitation_values = min_prec + random_numbers * (max_prec - min_prec)
 
 snow=0
-
+; hello
 for i=0, 9 do begin
 
 print, i
