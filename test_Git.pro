@@ -25,7 +25,7 @@ temp=temperature_values(i)
 prec=precipitation_values(i)
 
 if temp lt 0 then snow=prec else snow=0
-
+; hello from Lander
 snow=snow+snow
 
 endfor
