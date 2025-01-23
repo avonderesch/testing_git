@@ -8,7 +8,8 @@ max_prec = 15.0   ; Maximum temperature value
 
 ; Marit and Matthias
 <<<<<< HEAD
-; hello from alex and hello too from Lander and also from the rest in the room
+; hello from alex and hello too from Lander and also from the rest in
+; the room and whole Sion
 =======
 ; hello from alex and hello too from Lander !!
 >>>>>>> 66c375c91bf85f4e351a1dbf7fad9b6f935d619e
