@@ -7,7 +7,7 @@ min_prec = 0  ; Minimum temperature value
 max_prec = 15.0   ; Maximum temperature value
 
 
-; hello from alex and hello too
+; hello from alex and hello too from Lander
 ; Generate random numbers between 0 and 1
 random_numbers = RANDOMU(seed, n_elements)
 
