@@ -1,4 +1,4 @@
-
+;Alex
 n_elements = 10   ; Number of elements in the array
 min_temp = -9.0  ; Minimum temperature value
 max_temp = 15.0   ; Maximum temperature value
