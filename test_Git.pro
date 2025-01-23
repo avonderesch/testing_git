@@ -14,7 +14,7 @@ max_prec = 15.0   ; Maximum temperature value
 >>>>>>> 66c375c91bf85f4e351a1dbf7fad9b6f935d619e
 ; Generate random numbers between 0 and 1
 random_numbers = RANDOMU(seed, n_elements)
-
+; changing this so that its different to the main branch
 ; Scale and shift random numbers to represent temperature values
 temperature_values = min_temp + random_numbers * (max_temp - min_temp)
 precipitation_values = min_prec + random_numbers * (max_prec - min_prec)
